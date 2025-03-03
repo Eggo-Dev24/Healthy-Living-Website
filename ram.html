@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Computer Hardware Website: RAM Page</title>
+    <title>Keeping Healthy Website: Gallery Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div id="main">
         <div id="header">
-            <h1>Computer Hardware Website</h1>
+            <h1>Keeping Healthy Website</h1>
 
             <div id="social">
                 <a href="https://facebook.com">
@@ -41,21 +41,67 @@
             <h2>Gallery</h2>
         </div>
 
-        <div class="pics">
-            <img src="images/plate1.jpg" alt="">
-            <p>The Eatwell Plate</p>
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <div class="numbertext">1 / 3</div>
+              <img src="images/plate1.jpg" style="width:100%">
+              <div class="text">The Eatwell Plate.</div>
+            </div>
             
-        </div>
-        <div class="pics">
-            <img src="images/sleep1.jpg" alt="">
-            <p>A person sleeping in a bed.</p>
+            <div class="mySlides fade">
+              <div class="numbertext">2 / 3</div>
+              <img src="images/sleep1.jpg" style="width:100%">
+              <div class="text">A person sleeping in a bed.</div>
+            </div>
             
-        </div>
-        <div class="pics">
-            <img src="images/exercise1.jpg" alt="">
-            <p>Someone running during the sunset.</p>
+            <div class="mySlides fade">
+              <div class="numbertext">3 / 3</div>
+              <img src="images/exercise1.jpg" style="width:100%">
+              <div class="text">Someone running during sunset.</div>
+            </div>
             
-        </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+            
+            </div>
+            <br>
+            
+            <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span> 
+              <span class="dot" onclick="currentSlide(2)"></span> 
+              <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+            
+            <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+            
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+            
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+            
+            function showSlides(n) {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+              let dots = document.getElementsByClassName("dot");
+              if (n > slides.length) {slideIndex = 1}    
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+              }
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+            }
+            </script>
+
     </div>
 
     </div>
